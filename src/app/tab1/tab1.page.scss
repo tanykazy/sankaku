@@ -4,21 +4,37 @@
 }
 
 #left-side{
-    flex-grow: 1;
     font-weight: bold;
     color: #6091d3;/*文字色*/
     background: #FFF;
     border: solid 3px #6091d3;/*線*/
     border-radius: 10px;/*角の丸み*/
     height: 90%;
+    width: 50%;
+
+    display: flex;
+    flex-wrap: wrap;
+
+    padding-left: 30px;
 }
 
 #right-side{
-    flex-grow: 1;
     font-weight: bold;
     color: lightpink;/*文字色*/
     background: #FFF;
     border: solid 3px lightpink;/*線*/
     border-radius: 10px;/*角の丸み*/
     height: 90%;
+    width: 50%;
+}
+
+.box{
+    flex-direction: row;
+
+    background-color: blue;
+
+    width: 25%;
+    height: 25%;
+
+    margin: 3%;
 }
