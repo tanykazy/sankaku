@@ -7,6 +7,8 @@ import { ExploreContainerComponentModule } from '../explore-container/explore-co
 
 import { Tab1PageRoutingModule } from './tab1-routing.module';
 
+import {DragDropModule} from '@angular/cdk/drag-drop';
+
 @NgModule({
   imports: [
     IonicModule,
@@ -14,6 +16,7 @@ import { Tab1PageRoutingModule } from './tab1-routing.module';
     FormsModule,
     ExploreContainerComponentModule,
     Tab1PageRoutingModule,
+    DragDropModule
   ],
   declarations: [Tab1Page]
 })
