@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 
 import { PieBoxComponent } from '../pie-box/pie-box.component'
 
@@ -10,10 +10,10 @@ import { PieBoxComponent } from '../pie-box/pie-box.component'
 
 export class Tab1Page implements OnInit{
 
+  @ViewChild(PieBoxComponent) pieBox: PieBoxComponent;
+
   constructor(
   ) {}
-
-  pie: PieBoxComponent;
 
   ngOnInit(){
   }
