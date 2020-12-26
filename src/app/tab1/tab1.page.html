@@ -8,11 +8,25 @@
 
 <ion-content [fullscreen]="true">
 
+  <div>
+    <ion-button (click)="unlock()">同じ形の三角形をグループにわけよう</ion-button>
+  </div>
+
+  <ng-container *ngIf="movingLock; else ElseBlock">
     <div class="example-boundary">
-      <div id="sankaku1" class="example-box" cdkDragBoundary=".example-boundary" cdkDrag>
-        <canvas #canvas width="300" height="300"></canvas>      
+      <div id="sankaku1" class="example-box" cdkDrag>
+          <canvas #canvas width="300" height="300"></canvas>      
       </div>
     </div>
+  </ng-container>
+  <ng-template #ElseBlock>
+    <div class="example-boundary">
+      <div id="sankaku1" class="example-box">
+          <canvas #canvas width="300" height="300"></canvas>      
+      </div>
+    </div>
+  </ng-template>
+
 
     
 </ion-content>

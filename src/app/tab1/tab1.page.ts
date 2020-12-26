@@ -16,6 +16,15 @@ export class Tab1Page implements OnInit{
   canvas: ElementRef<HTMLCanvasElement>;
   ctx: any;
 
+  movingLock = true;
+  unlock(){
+    if(this.movingLock == true){
+      this.movingLock = false;
+    }else{
+      this.movingLock = true;
+    }
+  }
+
   ngOnInit(){
     this.ctx = this.canvas.nativeElement.getContext('2d');
 
