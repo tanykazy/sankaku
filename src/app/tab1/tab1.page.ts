@@ -24,7 +24,8 @@ export class Tab1Page implements OnInit{
     this.ctx.moveTo(150,0);
     this.ctx.lineTo(150, 300);
     this.ctx.strokeStyle = "red" ;
-    this.ctx.lineWidth = 3;
+    this.ctx.lineWidth = 4;
+    this.ctx.lineCap = "round";
     this.ctx.stroke();
     this.ctx.closePath(); 
 
@@ -32,7 +33,8 @@ export class Tab1Page implements OnInit{
     this.ctx.beginPath();
     this.ctx.moveTo(150, 300);
     this.ctx.lineTo(0, 150);
-    this.ctx.lineWidth = 3;
+    this.ctx.lineWidth = 4;
+    this.ctx.lineCap = "round";
     this.ctx.strokeStyle = "blue" ;
     this.ctx.stroke();
 
@@ -40,7 +42,8 @@ export class Tab1Page implements OnInit{
     this.ctx.beginPath();
     this.ctx.moveTo(0, 150);
     this.ctx.lineTo(150, 0);
-    this.ctx.lineWidth = 3;
+    this.ctx.lineWidth = 4;
+    this.ctx.lineCap = "round";
     this.ctx.strokeStyle = "blue" ;
     this.ctx.stroke();
   }
