@@ -18,11 +18,27 @@ export class Tab1Page implements OnInit{
 
   ngOnInit(){
     this.ctx = this.canvas.nativeElement.getContext('2d');
-    this.ctx.fillStyle = 'red';
-    this.ctx.strokeStyle = "red" ;
+
+    // 長さ6点分
     this.ctx.beginPath();
-    this.ctx.moveTo(0,0);
-    this.ctx.lineTo(50, 200);
+    this.ctx.moveTo(150,5);
+    this.ctx.lineTo(150, 295);
+    this.ctx.strokeStyle = "red" ;
+    this.ctx.stroke();
+    this.ctx.closePath(); 
+
+    // 長さ3点分
+    this.ctx.beginPath();
+    this.ctx.moveTo(150, 295);
+    this.ctx.lineTo(5, 150);
+    this.ctx.strokeStyle = "blue" ;
+    this.ctx.stroke();
+
+    // 長さ3点分
+    this.ctx.beginPath();
+    this.ctx.moveTo(5, 150);
+    this.ctx.lineTo(150, 5);
+    this.ctx.strokeStyle = "blue" ;
     this.ctx.stroke();
   }
 
