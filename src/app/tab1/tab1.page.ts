@@ -1,9 +1,6 @@
 import { Component, OnInit, ViewChild, ElementRef, Inject } from '@angular/core';
 import { DOCUMENT } from '@angular/common';
 
-import { ModalController } from '@ionic/angular';
-import { SemiModalPage } from '../semi-modal/semi-modal.page';
-
 @Component({
   selector: 'app-tab1',
   templateUrl: 'tab1.page.html',
@@ -13,26 +10,8 @@ import { SemiModalPage } from '../semi-modal/semi-modal.page';
 export class Tab1Page implements OnInit{
 
   constructor(
-    @Inject(DOCUMENT) private document: Document,
-    public modalController: ModalController
+    @Inject(DOCUMENT) private document: Document
   ) {}
-
-  // モーダルを表示
-  async presentModal() {
-    const modal = await this.modalController.create({
-      component: SemiModalPage,
-      cssClass: 'my-custom-class', // global.scss に記入する必要あり 
-      componentProps: {
-        /* 
-        'firstName': 'GDG',
-        'lastName': 'Nara',
-        'middleInitial': 'EdTech'
-        */
-      }
-    });
-    return await modal.present();
-  }
-
 
   // canvas の環境設定
   @ViewChild('canvas', { static: true })

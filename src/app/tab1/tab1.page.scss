@@ -6,16 +6,34 @@
 }
 
 #left-pane{
-  width: 67%;
+  width: 60%;
   height: 100%;
   background-color: lightblue;
 }
 
 #right-pane{
-  width: 33%;
+  width: 40%;
   height: 100%;
   background-color: lightpink;
 }
+
+#right1{
+  height:33%;
+  background-color: lightcoral;
+}
+
+#right2{
+  height:33%;
+  background-color: lightgreen;
+}
+
+#right3{
+  height:34%;
+  background-color: lightyellow;
+}
+
+
+
 
 canvas{
   z-index: 2;
@@ -49,6 +67,7 @@ canvas{
     background-image: url("../../assets/img/circle.png");
 
     margin: 8px;
+    margin-top: 30px
 
   }
   
