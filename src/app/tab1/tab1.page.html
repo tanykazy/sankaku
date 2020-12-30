@@ -12,14 +12,19 @@
 
   <div id="left-pane">
 
+
+    <ion-button (click)="presentModal()" style="font-size: 40px; font-weight:bold;width: 300px;height:100px">三角形を作る</ion-button>
+
     <div class="example-boundary">
+
       <div id="sankaku1" class="example-box">
         <canvas #canvas width="300" height="300" cdkDrag></canvas>
       </div>
 
-      <div id="sankaku2" class="example-box">
-        <canvas #canvas2 width="300" height="300" cdkDrag></canvas>
+      <div id="sankaku2" class="example-box" cdkDrag>
+        <canvas #canvas2 width="300" height="300" ></canvas>
       </div>
+
 
 
     </div>
