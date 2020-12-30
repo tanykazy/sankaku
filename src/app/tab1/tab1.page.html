@@ -1,59 +1,65 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      三角形を作ろう
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
-
 <ion-content [fullscreen]="true">
 
   <div id="wrapper">
 
   <div id="left-pane">
 
-
-    <ion-button (click)="presentModal()" style="font-size: 35px; font-weight:bold;width: 250px;height:40px">三角形を作る</ion-button>
+    <ion-button (click)="presentModal()" style="font-size: 35px; margin: 20px;font-weight:bold;width: 250px;height:40px">三角形を作る</ion-button>
 
     <div class="example-boundary">
 
       <div id="sankaku1" class="example-box">
-        <canvas #canvas width="300" height="300" cdkDrag></canvas>
+        <canvas id="canvas1" #canvas width="200" height="200" cdkDrag></canvas>
       </div>
 
       <div id="sankaku2" class="example-box" >
-        <canvas #canvas2 width="300" height="300" cdkDrag></canvas>
+        <canvas  id="canvas2" #canvas2 width="200" height="200" cdkDrag></canvas>
       </div>
 
       <div id="sankaku3" class="example-box" >
-        <canvas #canvas3 width="300" height="300" cdkDrag></canvas>
+        <canvas #canvas3 width="200" height="200" cdkDrag></canvas>
       </div>
 
       <div id="sankaku4" class="example-box" >
-        <canvas #canvas4 width="300" height="300" cdkDrag></canvas>
+        <canvas #canvas4 width="200" height="200" cdkDrag></canvas>
       </div>
 
       <div id="sankaku5" class="example-box" >
-        <canvas #canvas5 width="300" height="300" cdkDrag></canvas>
+        <canvas #canvas5 width="200" height="200" cdkDrag></canvas>
       </div>
 
       <div id="sankaku6" class="example-box" >
-        <canvas #canvas6 width="300" height="300" cdkDrag></canvas>
+        <canvas #canvas6 width="200" height="200" cdkDrag></canvas>
       </div>
 
       <div id="sankaku7" class="example-box" >
-        <canvas #canvas7 width="300" height="300" cdkDrag></canvas>
+        <canvas #canvas7 width="200" height="200" cdkDrag></canvas>
       </div>
 
       <div id="sankaku8" class="example-box" >
-        <canvas #canvas8 width="300" height="300" cdkDrag></canvas>
+        <canvas #canvas8 width="200" height="200" cdkDrag></canvas>
       </div>
 
       <div id="sankaku9" class="example-box" >
-        <canvas #canvas9 width="300" height="300" cdkDrag></canvas>
+        <canvas #canvas9 width="200" height="200" cdkDrag></canvas>
       </div>
 
+      <div id="sankaku10" class="example-box" >
+        <canvas #canvas10 width="200" height="200" cdkDrag></canvas>
+      </div>
+
+      <div id="sankaku11" class="example-box" >
+        <canvas #canvas11 width="200" height="200" cdkDrag></canvas>
+      </div>
+
+      <div id="sankaku12" class="example-box" >
+        <canvas #canvas12 width="200" height="200" cdkDrag></canvas>
+      </div>
+
+
+
     </div>
+
 
 
 

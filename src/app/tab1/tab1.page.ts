@@ -21,11 +21,13 @@ export class Tab1Page implements OnInit{
   async presentModal() {
     const modal = await this.modalController.create({
       component: SemiModalPage,
-      cssClass: 'my-custom-class',
+      cssClass: 'my-custom-class', // global.scss に記入する必要あり 
       componentProps: {
+        /* 
         'firstName': 'GDG',
         'lastName': 'Nara',
         'middleInitial': 'EdTech'
+        */
       }
     });
     return await modal.present();
@@ -60,6 +62,16 @@ export class Tab1Page implements OnInit{
   @ViewChild('canvas9', { static: true })
   canvas9: ElementRef<HTMLCanvasElement>;
 
+  @ViewChild('canvas10', { static: true })
+  canvas10: ElementRef<HTMLCanvasElement>;
+
+  @ViewChild('canvas11', { static: true })
+  canvas11: ElementRef<HTMLCanvasElement>;
+
+  @ViewChild('canvas12', { static: true })
+  canvas12: ElementRef<HTMLCanvasElement>;
+
+
   ctx1: any;
   ctx2: any;
   ctx3: any;
@@ -69,6 +81,9 @@ export class Tab1Page implements OnInit{
   ctx7: any;
   ctx8: any;
   ctx9: any;
+  ctx10: any;
+  ctx11: any;
+  ctx12: any;
 
   ngOnInit(){
 
@@ -76,8 +91,8 @@ export class Tab1Page implements OnInit{
     this.ctx1 = this.canvas.nativeElement.getContext('2d');
     // 長さ6点分
     this.ctx1.beginPath();
-    this.ctx1.moveTo(150,0);
-    this.ctx1.lineTo(150, 300);
+    this.ctx1.moveTo(100,0);
+    this.ctx1.lineTo(100, 200);
     this.ctx1.strokeStyle = "red" ;
     this.ctx1.lineWidth = 4;
     this.ctx1.lineCap = "round";
@@ -85,16 +100,16 @@ export class Tab1Page implements OnInit{
     this.ctx1.closePath(); 
     // 長さ3点分
     this.ctx1.beginPath();
-    this.ctx1.moveTo(150, 300);
-    this.ctx1.lineTo(0, 150);
+    this.ctx1.moveTo(100, 200);
+    this.ctx1.lineTo(0, 100);
     this.ctx1.lineWidth = 4;
     this.ctx1.lineCap = "round";
     this.ctx1.strokeStyle = "blue" ;
     this.ctx1.stroke();
     // 長さ3点分
     this.ctx1.beginPath();
-    this.ctx1.moveTo(0, 150);
-    this.ctx1.lineTo(150, 0);
+    this.ctx1.moveTo(0, 100);
+    this.ctx1.lineTo(100, 0);
     this.ctx1.lineWidth = 4;
     this.ctx1.lineCap = "round";
     this.ctx1.strokeStyle = "blue" ;
@@ -104,8 +119,8 @@ export class Tab1Page implements OnInit{
     this.ctx2 = this.canvas2.nativeElement.getContext('2d');
     // 長さ6分
     this.ctx2.beginPath();
-    this.ctx2.moveTo(150,0);
-    this.ctx2.lineTo(150, 300);
+    this.ctx2.moveTo(100,0);
+    this.ctx2.lineTo(100, 200);
     this.ctx2.strokeStyle = "red" ;
     this.ctx2.lineWidth = 4;
     this.ctx2.lineCap = "round";
@@ -113,16 +128,16 @@ export class Tab1Page implements OnInit{
     this.ctx2.closePath(); 
     // 長さ3分
     this.ctx2.beginPath();
-    this.ctx2.moveTo(150, 300);
-    this.ctx2.lineTo(300, 150);
+    this.ctx2.moveTo(100, 200);
+    this.ctx2.lineTo(200, 100);
     this.ctx2.lineWidth = 4;
     this.ctx2.lineCap = "round";
     this.ctx2.strokeStyle = "blue" ;
     this.ctx2.stroke();
     // 長さ3分
     this.ctx2.beginPath();
-    this.ctx2.moveTo(300, 150);
-    this.ctx2.lineTo(150, 0);
+    this.ctx2.moveTo(200, 100);
+    this.ctx2.lineTo(100, 0);
     this.ctx2.lineWidth = 4;
     this.ctx2.lineCap = "round";
     this.ctx2.strokeStyle = "blue" ;
@@ -132,8 +147,8 @@ export class Tab1Page implements OnInit{
     this.ctx3 = this.canvas3.nativeElement.getContext('2d');
     // 長さ6点分
     this.ctx3.beginPath();
-    this.ctx3.moveTo(150,0);
-    this.ctx3.lineTo(150, 300);
+    this.ctx3.moveTo(100,0);
+    this.ctx3.lineTo(100, 200);
     this.ctx3.strokeStyle = "red" ;
     this.ctx3.lineWidth = 4;
     this.ctx3.lineCap = "round";
@@ -141,16 +156,16 @@ export class Tab1Page implements OnInit{
     this.ctx3.closePath(); 
     // 長さ3点分
     this.ctx3.beginPath();
-    this.ctx3.moveTo(150, 300);
-    this.ctx3.lineTo(0, 150);
+    this.ctx3.moveTo(100, 200);
+    this.ctx3.lineTo(0, 100);
     this.ctx3.lineWidth = 4;
     this.ctx3.lineCap = "round";
     this.ctx3.strokeStyle = "blue" ;
     this.ctx3.stroke();
     // 長さ3点分
     this.ctx3.beginPath();
-    this.ctx3.moveTo(0, 150);
-    this.ctx3.lineTo(150, 0);
+    this.ctx3.moveTo(0, 100);
+    this.ctx3.lineTo(100, 0);
     this.ctx3.lineWidth = 4;
     this.ctx3.lineCap = "round";
     this.ctx3.strokeStyle = "blue" ;
@@ -160,8 +175,8 @@ export class Tab1Page implements OnInit{
     this.ctx4 = this.canvas4.nativeElement.getContext('2d');
     // 長さ6点分
     this.ctx4.beginPath();
-    this.ctx4.moveTo(150,0);
-    this.ctx4.lineTo(150, 300);
+    this.ctx4.moveTo(100,0);
+    this.ctx4.lineTo(100, 200);
     this.ctx4.strokeStyle = "red" ;
     this.ctx4.lineWidth = 4;
     this.ctx4.lineCap = "round";
@@ -169,16 +184,16 @@ export class Tab1Page implements OnInit{
     this.ctx4.closePath(); 
     // 長さ3点分
     this.ctx4.beginPath();
-    this.ctx4.moveTo(150, 300);
-    this.ctx4.lineTo(0, 150);
+    this.ctx4.moveTo(100, 200);
+    this.ctx4.lineTo(0, 100);
     this.ctx4.lineWidth = 4;
     this.ctx4.lineCap = "round";
     this.ctx4.strokeStyle = "blue" ;
     this.ctx4.stroke();
     // 長さ3点分
     this.ctx4.beginPath();
-    this.ctx4.moveTo(0, 150);
-    this.ctx4.lineTo(150, 0);
+    this.ctx4.moveTo(0, 100);
+    this.ctx4.lineTo(100, 0);
     this.ctx4.lineWidth = 4;
     this.ctx4.lineCap = "round";
     this.ctx4.strokeStyle = "blue" ;
@@ -188,8 +203,8 @@ export class Tab1Page implements OnInit{
     this.ctx5 = this.canvas5.nativeElement.getContext('2d');
     // 長さ6点分
     this.ctx5.beginPath();
-    this.ctx5.moveTo(150,0);
-    this.ctx5.lineTo(150, 300);
+    this.ctx5.moveTo(100,0);
+    this.ctx5.lineTo(100, 200);
     this.ctx5.strokeStyle = "red" ;
     this.ctx5.lineWidth = 4;
     this.ctx5.lineCap = "round";
@@ -197,16 +212,16 @@ export class Tab1Page implements OnInit{
     this.ctx5.closePath(); 
     // 長さ3点分
     this.ctx5.beginPath();
-    this.ctx5.moveTo(150, 300);
-    this.ctx5.lineTo(0, 150);
+    this.ctx5.moveTo(100, 200);
+    this.ctx5.lineTo(0, 100);
     this.ctx5.lineWidth = 4;
     this.ctx5.lineCap = "round";
     this.ctx5.strokeStyle = "blue" ;
     this.ctx5.stroke();
     // 長さ3点分
     this.ctx5.beginPath();
-    this.ctx5.moveTo(0, 150);
-    this.ctx5.lineTo(150, 0);
+    this.ctx5.moveTo(0, 100);
+    this.ctx5.lineTo(100, 0);
     this.ctx5.lineWidth = 4;
     this.ctx5.lineCap = "round";
     this.ctx5.strokeStyle = "blue" ;
@@ -216,8 +231,8 @@ export class Tab1Page implements OnInit{
     this.ctx6 = this.canvas6.nativeElement.getContext('2d');
     // 長さ6点分
     this.ctx6.beginPath();
-    this.ctx6.moveTo(150,0);
-    this.ctx6.lineTo(150, 300);
+    this.ctx6.moveTo(100,0);
+    this.ctx6.lineTo(100, 200);
     this.ctx6.strokeStyle = "red" ;
     this.ctx6.lineWidth = 4;
     this.ctx6.lineCap = "round";
@@ -225,16 +240,16 @@ export class Tab1Page implements OnInit{
     this.ctx6.closePath(); 
     // 長さ3点分
     this.ctx6.beginPath();
-    this.ctx6.moveTo(150, 300);
-    this.ctx6.lineTo(0, 150);
+    this.ctx6.moveTo(100, 200);
+    this.ctx6.lineTo(0, 100);
     this.ctx6.lineWidth = 4;
     this.ctx6.lineCap = "round";
     this.ctx6.strokeStyle = "blue" ;
     this.ctx6.stroke();
     // 長さ3点分
     this.ctx6.beginPath();
-    this.ctx6.moveTo(0, 150);
-    this.ctx6.lineTo(150, 0);
+    this.ctx6.moveTo(0, 100);
+    this.ctx6.lineTo(100, 0);
     this.ctx6.lineWidth = 4;
     this.ctx6.lineCap = "round";
     this.ctx6.strokeStyle = "blue" ;
@@ -244,8 +259,8 @@ export class Tab1Page implements OnInit{
     this.ctx7 = this.canvas7.nativeElement.getContext('2d');
     // 長さ6点分
     this.ctx7.beginPath();
-    this.ctx7.moveTo(150,0);
-    this.ctx7.lineTo(150, 300);
+    this.ctx7.moveTo(100,0);
+    this.ctx7.lineTo(100, 200);
     this.ctx7.strokeStyle = "red" ;
     this.ctx7.lineWidth = 4;
     this.ctx7.lineCap = "round";
@@ -253,16 +268,16 @@ export class Tab1Page implements OnInit{
     this.ctx7.closePath(); 
     // 長さ3点分
     this.ctx7.beginPath();
-    this.ctx7.moveTo(150, 300);
-    this.ctx7.lineTo(0, 150);
+    this.ctx7.moveTo(100, 200);
+    this.ctx7.lineTo(0, 100);
     this.ctx7.lineWidth = 4;
     this.ctx7.lineCap = "round";
     this.ctx7.strokeStyle = "blue" ;
     this.ctx7.stroke();
     // 長さ3点分
     this.ctx7.beginPath();
-    this.ctx7.moveTo(0, 150);
-    this.ctx7.lineTo(150, 0);
+    this.ctx7.moveTo(0, 100);
+    this.ctx7.lineTo(100, 0);
     this.ctx7.lineWidth = 4;
     this.ctx7.lineCap = "round";
     this.ctx7.strokeStyle = "blue" ;
@@ -272,8 +287,8 @@ export class Tab1Page implements OnInit{
     this.ctx8 = this.canvas8.nativeElement.getContext('2d');
     // 長さ6点分
     this.ctx8.beginPath();
-    this.ctx8.moveTo(150,0);
-    this.ctx8.lineTo(150, 300);
+    this.ctx8.moveTo(100,0);
+    this.ctx8.lineTo(100, 200);
     this.ctx8.strokeStyle = "red" ;
     this.ctx8.lineWidth = 4;
     this.ctx8.lineCap = "round";
@@ -281,16 +296,16 @@ export class Tab1Page implements OnInit{
     this.ctx8.closePath(); 
     // 長さ3点分
     this.ctx8.beginPath();
-    this.ctx8.moveTo(150, 300);
-    this.ctx8.lineTo(0, 150);
+    this.ctx8.moveTo(100, 200);
+    this.ctx8.lineTo(0, 100);
     this.ctx8.lineWidth = 4;
     this.ctx8.lineCap = "round";
     this.ctx8.strokeStyle = "blue" ;
     this.ctx8.stroke();
     // 長さ3点分
     this.ctx8.beginPath();
-    this.ctx8.moveTo(0, 150);
-    this.ctx8.lineTo(150, 0);
+    this.ctx8.moveTo(0, 100);
+    this.ctx8.lineTo(100, 0);
     this.ctx8.lineWidth = 4;
     this.ctx8.lineCap = "round";
     this.ctx8.strokeStyle = "blue" ;
@@ -300,8 +315,8 @@ export class Tab1Page implements OnInit{
     this.ctx9 = this.canvas9.nativeElement.getContext('2d');
     // 長さ6点分
     this.ctx9.beginPath();
-    this.ctx9.moveTo(150,0);
-    this.ctx9.lineTo(150, 300);
+    this.ctx9.moveTo(100,0);
+    this.ctx9.lineTo(100, 200);
     this.ctx9.strokeStyle = "red" ;
     this.ctx9.lineWidth = 4;
     this.ctx9.lineCap = "round";
@@ -309,21 +324,104 @@ export class Tab1Page implements OnInit{
     this.ctx9.closePath(); 
     // 長さ3点分
     this.ctx9.beginPath();
-    this.ctx9.moveTo(150, 300);
-    this.ctx9.lineTo(0, 150);
+    this.ctx9.moveTo(100, 200);
+    this.ctx9.lineTo(0, 100);
     this.ctx9.lineWidth = 4;
     this.ctx9.lineCap = "round";
     this.ctx9.strokeStyle = "blue" ;
     this.ctx9.stroke();
     // 長さ3点分
     this.ctx9.beginPath();
-    this.ctx9.moveTo(0, 150);
-    this.ctx9.lineTo(150, 0);
+    this.ctx9.moveTo(0, 100);
+    this.ctx9.lineTo(100, 0);
     this.ctx9.lineWidth = 4;
     this.ctx9.lineCap = "round";
     this.ctx9.strokeStyle = "blue" ;
     this.ctx9.stroke();
 
+    // canvas10
+    this.ctx10 = this.canvas10.nativeElement.getContext('2d');
+    // 長さ6点分
+    this.ctx10.beginPath();
+    this.ctx10.moveTo(100,0);
+    this.ctx10.lineTo(100, 200);
+    this.ctx10.strokeStyle = "red" ;
+    this.ctx10.lineWidth = 4;
+    this.ctx10.lineCap = "round";
+    this.ctx10.stroke();
+    this.ctx10.closePath(); 
+    // 長さ3点分
+    this.ctx10.beginPath();
+    this.ctx10.moveTo(100, 200);
+    this.ctx10.lineTo(0, 100);
+    this.ctx10.lineWidth = 4;
+    this.ctx10.lineCap = "round";
+    this.ctx10.strokeStyle = "blue" ;
+    this.ctx10.stroke();
+    // 長さ10点分
+    this.ctx10.beginPath();
+    this.ctx10.moveTo(0, 100);
+    this.ctx10.lineTo(100, 0);
+    this.ctx10.lineWidth = 4;
+    this.ctx10.lineCap = "round";
+    this.ctx10.strokeStyle = "blue" ;
+    this.ctx10.stroke();
+
+    // canvas10
+    this.ctx11 = this.canvas11.nativeElement.getContext('2d');
+    // 長さ6点分
+    this.ctx11.beginPath();
+    this.ctx11.moveTo(100,0);
+    this.ctx11.lineTo(100, 200);
+    this.ctx11.strokeStyle = "red" ;
+    this.ctx11.lineWidth = 4;
+    this.ctx11.lineCap = "round";
+    this.ctx11.stroke();
+    this.ctx11.closePath(); 
+    // 長さ3点分
+    this.ctx11.beginPath();
+    this.ctx11.moveTo(100, 200);
+    this.ctx11.lineTo(0, 100);
+    this.ctx11.lineWidth = 4;
+    this.ctx11.lineCap = "round";
+    this.ctx11.strokeStyle = "blue" ;
+    this.ctx11.stroke();
+    // 長さ10点分
+    this.ctx11.beginPath();
+    this.ctx11.moveTo(0, 100);
+    this.ctx11.lineTo(100, 0);
+    this.ctx11.lineWidth = 4;
+    this.ctx11.lineCap = "round";
+    this.ctx11.strokeStyle = "blue" ;
+    this.ctx11.stroke();
+
+    // canvas12
+    this.ctx12 = this.canvas12.nativeElement.getContext('2d');
+    // 長さ6点分
+    this.ctx12.beginPath();
+    this.ctx12.moveTo(100,0);
+    this.ctx12.lineTo(100, 200);
+    this.ctx12.strokeStyle = "red" ;
+    this.ctx12.lineWidth = 4;
+    this.ctx12.lineCap = "round";
+    this.ctx12.stroke();
+    this.ctx12.closePath(); 
+    // 長さ3点分
+    this.ctx12.beginPath();
+    this.ctx12.moveTo(100, 200);
+    this.ctx12.lineTo(0, 100);
+    this.ctx12.lineWidth = 4;
+    this.ctx12.lineCap = "round";
+    this.ctx12.strokeStyle = "blue" ;
+    this.ctx12.stroke();
+    // 長さ10点分
+    this.ctx12.beginPath();
+    this.ctx12.moveTo(0, 100);
+    this.ctx12.lineTo(100, 0);
+    this.ctx12.lineWidth = 4;
+    this.ctx12.lineCap = "round";
+    this.ctx12.strokeStyle = "blue" ;
+    this.ctx12.stroke();    
   }
 
 }

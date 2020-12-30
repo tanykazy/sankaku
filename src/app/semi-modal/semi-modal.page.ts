@@ -24,8 +24,8 @@ export class SemiModalPage implements OnInit {
     this.ctx = this.canvas.nativeElement.getContext('2d');
     // 長さ6点分
     this.ctx.beginPath();
-    this.ctx.moveTo(150,0);
-    this.ctx.lineTo(150, 300);
+    this.ctx.moveTo(100,0);
+    this.ctx.lineTo(100, 200);
     this.ctx.strokeStyle = "red" ;
     this.ctx.lineWidth = 4;
     this.ctx.lineCap = "round";
@@ -34,16 +34,16 @@ export class SemiModalPage implements OnInit {
 
     // 長さ3点分
     this.ctx.beginPath();
-    this.ctx.moveTo(150, 300);
-    this.ctx.lineTo(0, 150);
+    this.ctx.moveTo(100, 200);
+    this.ctx.lineTo(0, 100);
     this.ctx.lineWidth = 4;
     this.ctx.lineCap = "round";
     this.ctx.strokeStyle = "green" ;
     this.ctx.stroke();
     // 長さ3点分
     this.ctx.beginPath();
-    this.ctx.moveTo(0, 150);
-    this.ctx.lineTo(150, 0);
+    this.ctx.moveTo(0, 100);
+    this.ctx.lineTo(100, 0);
     this.ctx.lineWidth = 4;
     this.ctx.lineCap = "round";
     this.ctx.strokeStyle = "green" ;
