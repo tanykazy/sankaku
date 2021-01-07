@@ -6,14 +6,14 @@
 
 ```
 yarn
-cd sankaku
+cd sankaku-ng
 npx ionic serve
 ```
 
 ## Deployment
 
 ```
-npx ng run app:build:production --base-href "https://gdg-nara.github.io/sankaku/"
+npx ng run app:build:production --base-href "https://gdg-nara.github.io/sankaku-ng/"
 
 npx angular-cli-ghpages --dir=www
 ```
