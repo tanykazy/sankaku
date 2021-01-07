@@ -17,8 +17,8 @@ export class Tab1Page implements OnInit{
   ) {}
 
   // canvas の環境設定
-  @ViewChild('canvas', { static: true })
-  canvas: ElementRef<HTMLCanvasElement>;
+  @ViewChild('canvas1', { static: true })
+  canvas1: ElementRef<HTMLCanvasElement>;
 
   @ViewChild('canvas2', { static: true })
   canvas2: ElementRef<HTMLCanvasElement>;
@@ -61,10 +61,6 @@ export class Tab1Page implements OnInit{
     let canvasN = canvas;
     contextN = canvasN.nativeElement.getContext('2d');
     contextN.beginPath();
-    /*
-    contextN.fillStyle = 'white';
-    contextN.fillRect(0, 0, 200, 200);
-    */
     contextN.lineWidth = 4;
     contextN.arc(100, 100, 92, 0 * Math.PI / 180, 360 * Math.PI / 180, false);
     contextN.fillStyle = "white";
@@ -75,15 +71,13 @@ export class Tab1Page implements OnInit{
   }
 
   ngOnInit(){
-    this.drawCircle(this.ctx1,this.canvas);
-    this.drawCircle(this.ctx2,this.canvas2);
-    this.drawCircle(this.ctx3,this.canvas3);
-    this.drawCircle(this.ctx4,this.canvas4);
-    this.drawCircle(this.ctx5,this.canvas5);
-    this.drawCircle(this.ctx6,this.canvas6);
-    this.drawCircle(this.ctx7,this.canvas7);
-    this.drawCircle(this.ctx8,this.canvas8);
-    this.drawCircle(this.ctx9,this.canvas9);
+    const canvases = [this.canvas1,this.canvas2,this.canvas3,this.canvas4,this.canvas5,this.canvas6,this.canvas7,this.canvas8,this.canvas9];
+    const contexes = [this.ctx1,this.ctx2,this.ctx3,this.ctx4,this.ctx5,this.ctx6,this.ctx7,this.ctx8,this.ctx9];
+
+    for(let i = 0; canvases.length > i; i++){
+      this.drawCircle(contexes[i],canvases[i]);
+    }
+
   }
 
 }
