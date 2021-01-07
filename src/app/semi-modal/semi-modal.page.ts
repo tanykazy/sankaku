@@ -45,7 +45,7 @@ export class SemiModalPage implements OnInit {
     dot12:{x: this.centerPointX - this.shortLine, y: this.centerPointY - this.middleLine}
   }
 
-  init(){
+  reset(){
 
     // 環境を白紙にする
     this.selectedDots.clear();
@@ -55,7 +55,7 @@ export class SemiModalPage implements OnInit {
     this.context.beginPath();
     this.context.fillStyle = 'white';
     this.context.fillRect(0, 0, 200, 200);
-    this.context.lineWidth = 2.5;
+    this.context.lineWidth = 4;
     this.context.arc(100, 100, 92, 0 * Math.PI / 180, 360 * Math.PI / 180, false);
     this.context.fillStyle = "rgba(0,0,0,0)";
     this.context.fill();
@@ -73,7 +73,7 @@ export class SemiModalPage implements OnInit {
   }
 
 
-  hoge(event){
+  init(event){
 
     this.context = this.canvas.nativeElement.getContext('2d');
 
@@ -82,13 +82,12 @@ export class SemiModalPage implements OnInit {
     var y = event.clientY - rect.top
     console.log(`${x}:${y}`)
 
-
     // クリック時の座標に応じてdotに色をつけて、selectedDots に追加する
     for(let key in this.coordinates){
       if((event.offsetX > this.coordinates[key].x - 15 && event.offsetX < this.coordinates[key].x + 15) 
           && (event.offsetY > this.coordinates[key].y - 15 && event.offsetY < this.coordinates[key].y + 15)){
         this.context.beginPath();
-        this.context.lineWidth = 2.5;
+        this.context.lineWidth = 4;
         this.context.strokeStyle = "black"
         this.context.arc(this.coordinates[key].x, this.coordinates[key].y, 6, 0 * Math.PI / 180, 360 * Math.PI / 180, false );
         this.context.fillStyle = "rgba(255,200,0,0.8)";
@@ -104,7 +103,7 @@ export class SemiModalPage implements OnInit {
 
       // 1 点目から 2点目
       this.context.beginPath();
-      this.context.lineWidth = 2.5;
+      this.context.lineWidth = 4;
       this.setLineColor(dots[0],dots[1]);
       this.context.moveTo(this.coordinates[`${dots[0]}`].x, this.coordinates[`${dots[0]}`].y);
       this.context.lineTo(this.coordinates[`${dots[1]}`].x, this.coordinates[`${dots[1]}`].y);
@@ -132,7 +131,7 @@ export class SemiModalPage implements OnInit {
 
     // 4点目が選択されたときの処理
     if(this.selectedDots.size > 3){
-      this.init();
+      this.reset();
     } 
   }
 
@@ -175,7 +174,7 @@ export class SemiModalPage implements OnInit {
     this.context.beginPath();
     this.context.fillStyle = 'white';
     this.context.fillRect(0, 0, 200, 200);
-    this.context.lineWidth = 2.5;
+    this.context.lineWidth = 4;
     this.context.arc(100, 100, 92, 0 * Math.PI / 180, 360 * Math.PI / 180, false);
     this.context.fillStyle = "white";
     this.context.fill();  
