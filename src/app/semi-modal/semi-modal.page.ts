@@ -9,15 +9,12 @@ export class SemiModalPage implements OnInit {
 
   constructor() {}
 
-  @Input() firstName: string;
-  @Input() lastName: string;
-  @Input() middleInitial: string;
+  // 選択された点
+  selectedDots = new Set();
 
   // canvas の環境設定
   @ViewChild('canvas', { static: true })
   canvas: ElementRef<HTMLCanvasElement>;
-
-  selectedDots = new Set();
   context: CanvasRenderingContext2D;
 
   /* 点1~12 の座標を求めるのに必要な情報 */
@@ -46,7 +43,6 @@ export class SemiModalPage implements OnInit {
   }
 
   reset(){
-
     // 環境を白紙にする
     this.selectedDots.clear();
     this.context.clearRect(0, 0, 200, 200);
@@ -74,13 +70,12 @@ export class SemiModalPage implements OnInit {
 
 
   init(event){
-
     this.context = this.canvas.nativeElement.getContext('2d');
 
-    var rect = event.target.getBoundingClientRect()
-    var x = event.clientX - rect.left
-    var y = event.clientY - rect.top
-    console.log(`${x}:${y}`)
+    // クリック時の canvas 内での座標
+    let rect = event.target.getBoundingClientRect();
+    let x = event.clientX - rect.left;
+    let y = event.clientY - rect.top;
 
     // クリック時の座標に応じてdotに色をつけて、selectedDots に追加する
     for(let key in this.coordinates){
@@ -101,7 +96,7 @@ export class SemiModalPage implements OnInit {
     if(this.selectedDots.size == 2){
       let dots = Array.from(this.selectedDots.values());
 
-      // 1 点目から 2点目
+      // 1 点目から 2点目を結ぶ
       this.context.beginPath();
       this.context.lineWidth = 4;
       this.setLineColor(dots[0],dots[1]);
@@ -114,14 +109,14 @@ export class SemiModalPage implements OnInit {
     if(this.selectedDots.size == 3){
       let dots = Array.from(this.selectedDots.values());
 
-      // 2点目から3点目
+      // 2点目から3点目を結ぶ
       this.context.beginPath();
       this.setLineColor(dots[1],dots[2]);
       this.context.moveTo(this.coordinates[`${dots[1]}`].x, this.coordinates[`${dots[1]}`].y);
       this.context.lineTo(this.coordinates[`${dots[2]}`].x, this.coordinates[`${dots[2]}`].y);
       this.context.stroke();
 
-      // 3点目から1点目
+      // 3点目から1点目を結ぶ
       this.context.beginPath();
       this.setLineColor(dots[2],dots[0]);
       this.context.moveTo(this.coordinates[`${dots[2]}`].x, this.coordinates[`${dots[2]}`].y);
@@ -129,10 +124,10 @@ export class SemiModalPage implements OnInit {
       this.context.stroke();
     }
 
-    // 4点目が選択されたときの処理
+    // 4点目が選択されたときに canvas をリセットする
     if(this.selectedDots.size > 3){
       this.reset();
-    } 
+    }
   }
 
   getDistanceOf2Dots(dot1, dot2){
@@ -143,27 +138,21 @@ export class SemiModalPage implements OnInit {
   setLineColor (dot1,dot2) {
     let distanceOfDots = Math.round(Math.sqrt(Math.pow((this.coordinates[dot1].x - this.coordinates[dot2].x),2) + Math.pow((this.coordinates[dot1].y - this.coordinates[dot2].y),2)));
   
-    // 距離が 1 点分の場合
     if(distanceOfDots == this.getDistanceOf2Dots("dot1","dot2")){
       this.context.strokeStyle = "red";
     }
-    // 距離が 2 点分の場合
     else if(distanceOfDots == this.getDistanceOf2Dots("dot1","dot3")){
       this.context.strokeStyle = "blue";
     }
-    // 距離が 3 点分の場合
     else if(distanceOfDots == this.getDistanceOf2Dots("dot1","dot4")){
       this.context.strokeStyle = "yellow";
     }
-    // 距離が 4 点分の場合
     else if(distanceOfDots == this.getDistanceOf2Dots("dot1","dot5")){
       this.context.strokeStyle = "green";
     }
-    // 距離が 5 点分の場合
     else if(distanceOfDots == this.getDistanceOf2Dots("dot1","dot6")){
       this.context.strokeStyle = "orange";
     }
-    // 距離が 6 点分の場合
     else if(distanceOfDots == this.getDistanceOf2Dots("dot1","dot7")){
       this.context.strokeStyle = "pink";
     }
@@ -193,7 +182,5 @@ export class SemiModalPage implements OnInit {
       this.context.fill();
       this.context.stroke();
     }
-
   }
-
 }
