@@ -5,12 +5,6 @@
 </ion-header>
 
 <ion-content>
-
-  <div class="my-custom-class">
-    <div id="sankaku" class="example-box" >
-      <canvas #canvas width="200" height="200" cdkDrag></canvas>
-    </div>
-    <ion-button style="width:100%;height: 50px;font-size: 30px;">決定する</ion-button>
-  </div>
-
+    <canvas #canvas class="my-custom-class" width="200" height="200" (click)="hoge($event)" ></canvas>
+    <ion-button style="width:100%;height: 50px;font-size: 30px;" (click)="animate()">決定する</ion-button>
 </ion-content>

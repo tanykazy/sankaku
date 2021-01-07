@@ -6,13 +6,13 @@
 }
 
 #left-pane{
-  width: 47%;
+  width: 50%;
   height: 100%;
   background-color: lightblue;
 }
 
 #right-pane{
-  width: 53%;
+  width: 50%;
   height: 100%;
   background-color: lightgreen;
 }
@@ -58,12 +58,12 @@ canvas{
     box-sizing: border-box;
     padding: 10px;
     transition: box-shadow 200ms cubic-bezier(0, 0, 0.2, 1);
-
+  
     background-size: 104%;
     background-position:center center;
     background-image: url("../../assets/img/circle.png");
 
-    margin: 8px;
+    margin: 5px;
     margin-top: 30px
 
   }
