@@ -1,13 +1,13 @@
 # sankaku
 
-小学３年生の色々な三角形の単元で使う学習アプリ
+小学３年生「三角形と角」の単元で使う学習アプリ
 
 ## Development
 
 ```
 yarn
 cd sankaku-ng
-npx ionic serve
+npx ionic serve 
 ```
 
 ## Deployment
