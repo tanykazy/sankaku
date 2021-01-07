@@ -6,4 +6,15 @@ import { Injectable } from '@angular/core';
 export class SyncDotsInfoService {
 
   constructor() { }
+
+  selectedDotsArray = [];
+
+  addSelectedDotsArray(dots){
+    this.selectedDotsArray.push(dots);
+  }
+
+  syncDotsInfo(){
+    console.log(this.selectedDotsArray);
+  }
+
 }

@@ -1,5 +1,7 @@
 import { Component, OnInit, ViewChild, ElementRef, Inject, Input } from '@angular/core';
 
+import { SyncDotsInfoService } from '../services/sync-dots-info.service'
+
 @Component({
   selector: 'app-semi-modal',
   templateUrl: './semi-modal.page.html',
@@ -7,7 +9,15 @@ import { Component, OnInit, ViewChild, ElementRef, Inject, Input } from '@angula
 })
 export class SemiModalPage implements OnInit {
 
-  constructor() {}
+  constructor(
+    private syncDotsInfoService: SyncDotsInfoService
+  ) {}
+
+  // Dot 情報をコンポーネントと同期する
+  syncDots(){
+    this.syncDotsInfoService.addSelectedDotsArray(this.selectedDots);
+    this.syncDotsInfoService.syncDotsInfo();
+  }
 
   // 選択された点
   selectedDots = new Set();

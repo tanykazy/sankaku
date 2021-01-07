@@ -1,6 +1,8 @@
 import { Component, OnInit, ViewChild, ElementRef, Inject } from '@angular/core';
 import { DOCUMENT } from '@angular/common';
 
+import { SyncDotsInfoService } from '../services/sync-dots-info.service'
+
 @Component({
   selector: 'app-tab1',
   templateUrl: 'tab1.page.html',
@@ -10,7 +12,8 @@ import { DOCUMENT } from '@angular/common';
 export class Tab1Page implements OnInit{
 
   constructor(
-    @Inject(DOCUMENT) private document: Document
+    @Inject(DOCUMENT) private document: Document,
+    private syncDotsInfoService: SyncDotsInfoService
   ) {}
 
   // canvas の環境設定
@@ -66,6 +69,8 @@ export class Tab1Page implements OnInit{
   ctx11: any;
   ctx12: any;
   */
+
+  selectedDots: any;
 
   ngOnInit(){
 
