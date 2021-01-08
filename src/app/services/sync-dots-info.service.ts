@@ -10,11 +10,15 @@ export class SyncDotsInfoService {
   selectedDotsArray = [];
 
   addSelectedDotsArray(dots){
-    this.selectedDotsArray.push(dots);
+    if(Array.from(dots).length == 3){
+      this.selectedDotsArray.push(Array.from(dots));
+      console.log(`${Array.from(dots)}が追加されました`)  
+    }
   }
 
   syncDotsInfo(){
-    console.log(this.selectedDotsArray);
+    console.log("selectedDotsArray: ", this.selectedDotsArray);
+    return this.selectedDotsArray
   }
 
 }

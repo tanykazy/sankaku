@@ -13,14 +13,15 @@ export class SemiModalPage implements OnInit {
     private syncDotsInfoService: SyncDotsInfoService
   ) {}
 
+  // 選択された点
+  selectedDots = new Set();
+
   // Dot 情報をコンポーネントと同期する
   syncDots(){
     this.syncDotsInfoService.addSelectedDotsArray(this.selectedDots);
     this.syncDotsInfoService.syncDotsInfo();
+    this.reset();
   }
-
-  // 選択された点
-  selectedDots = new Set();
 
   // canvas の環境設定
   @ViewChild('canvas', { static: true })
@@ -65,6 +66,7 @@ export class SemiModalPage implements OnInit {
     this.context.arc(100, 100, 92, 0 * Math.PI / 180, 360 * Math.PI / 180, false);
     this.context.fillStyle = "rgba(0,0,0,0)";
     this.context.fill();
+    this.context.strokeStyle = "black"
     this.context.stroke();
   
     // 12点を描く

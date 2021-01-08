@@ -54,8 +54,7 @@ export class Tab1Page implements OnInit{
   ctx8: any;
   ctx9: any;
 
-  selectedDots: any;
-
+  // 9 つの白紙の円を描く
   drawCircle(context,canvas){
     let contextN = context;
     let canvasN = canvas;
@@ -69,6 +68,11 @@ export class Tab1Page implements OnInit{
     contextN.lineWidth = 4;
     contextN.stroke();
   }
+
+  drawLinesOnCanvases(){
+    
+  }
+
 
   ngOnInit(){
     const canvases = [this.canvas1,this.canvas2,this.canvas3,this.canvas4,this.canvas5,this.canvas6,this.canvas7,this.canvas8,this.canvas9];
