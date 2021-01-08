@@ -1,4 +1,7 @@
-import { Component, OnInit, ViewChild, ElementRef, Inject, Input } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef 
+  // ,EventEmitter,Output
+} from '@angular/core';
+import { ModalController } from '@ionic/angular';
 
 import { SyncDotsInfoService } from '../services/sync-dots-info.service'
 
@@ -10,8 +13,17 @@ import { SyncDotsInfoService } from '../services/sync-dots-info.service'
 export class SemiModalPage implements OnInit {
 
   constructor(
-    private syncDotsInfoService: SyncDotsInfoService
+    private syncDotsInfoService: SyncDotsInfoService,
+    public modalController: ModalController,
   ) {}
+
+  /*
+  @Output() created = new EventEmitter<any>();
+  createdItem = "Hohohohoho!";
+  onsubmit() {
+    this.created.emit(this.createdItem);
+  }
+  */
 
   // 選択された点
   selectedDots = new Set();
@@ -21,6 +33,14 @@ export class SemiModalPage implements OnInit {
     this.syncDotsInfoService.addSelectedDotsArray(this.selectedDots);
     this.syncDotsInfoService.syncDotsInfo();
     this.reset();
+  }
+
+  countDots(){
+    if(this.syncDotsInfoService.selectedDotsArray.length < 6){
+      return `あと${6 - this.syncDotsInfoService.selectedDotsArray.length}個、作ろう!`      
+    }else{
+      return `外側をクリックしてください`
+    }
   }
 
   // canvas の環境設定
@@ -82,6 +102,7 @@ export class SemiModalPage implements OnInit {
 
 
   init(event){
+
     this.context = this.canvas.nativeElement.getContext('2d');
 
     // クリック時の canvas 内での座標
