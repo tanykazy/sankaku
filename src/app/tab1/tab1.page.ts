@@ -48,6 +48,13 @@ export class Tab1Page implements OnInit{
   canvas5: ElementRef<HTMLCanvasElement>;
   @ViewChild('canvas6', { static: true })
   canvas6: ElementRef<HTMLCanvasElement>;
+  @ViewChild('canvas7', { static: true })
+  canvas7: ElementRef<HTMLCanvasElement>;
+  @ViewChild('canvas8', { static: true })
+  canvas8: ElementRef<HTMLCanvasElement>;
+  @ViewChild('canvas9', { static: true })
+  canvas9: ElementRef<HTMLCanvasElement>;
+
   // context
   context1: any;
   context2: any;
@@ -55,6 +62,10 @@ export class Tab1Page implements OnInit{
   context4: any;
   context5: any;
   context6: any;
+  context7: any;
+  context8: any;
+  context9: any;
+
   // canvas1~6, contex1~6 への参照
   canvases;
   contexes;
@@ -174,8 +185,8 @@ export class Tab1Page implements OnInit{
   }
 
   ngOnInit(){
-    this.canvases = [this.canvas1,this.canvas2,this.canvas3,this.canvas4,this.canvas5,this.canvas6];
-    this.contexes = [this.context1,this.context2,this.context3,this.context4,this.context5,this.context6];
+    this.canvases = [this.canvas1,this.canvas2,this.canvas3,this.canvas4,this.canvas5,this.canvas6, this.canvas7, this.canvas8, this.canvas9];
+    this.contexes = [this.context1,this.context2,this.context3,this.context4,this.context5,this.context6,this.context7,this.context8,this.context9];
 
     // 円を描く
     for(let i = 0; this.canvases.length > i; i++){
