@@ -36,7 +36,7 @@ export class SemiModalPage implements OnInit {
   }
 
   countDots(){
-    if(this.syncDotsInfoService.selectedDotsArray.length < 6){
+    if(this.syncDotsInfoService.selectedDotsArray.length < 9){
       return `あと${9 - this.syncDotsInfoService.selectedDotsArray.length}個、作ろう!`      
     }else{
       return `外側をクリックしてください`
