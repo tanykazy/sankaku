@@ -1,12 +1,12 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>Step1</ion-title>
+    <ion-title>点を３つ選ぼう</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
     <canvas #canvas class="my-custom-class" width="200" height="200" (click)="init($event)" ></canvas>
-    <ion-button style="width:100%;height: 30px;font-size: 20px;" (click)="syncDots()" >make a triangle</ion-button>
+    <ion-button style="width:100%;height: 30px;font-size: 20px;" (click)="syncDots()">三角形を作る</ion-button>
     <h4 style="text-align: center;">{{countDots()}}</h4>
 </ion-content>
 
