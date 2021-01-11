@@ -56,7 +56,7 @@ export class Tab1Page implements OnInit, OnDestroy {
   context8: any;
   context9: any;
 
-  // canvas1~6, contex1~6 への参照
+  // canvas1~9, contex1~9 への参照
   canvases;
   contexes;
 
@@ -106,13 +106,8 @@ export class Tab1Page implements OnInit, OnDestroy {
   }
 
   setLineColor(dot1, dot2, context) {
-
-
     let distanceOfDots = Math.round(Math.sqrt(Math.pow((this.coordinates[dot1].x - this.coordinates[dot2].x), 2)
       + Math.pow((this.coordinates[dot1].y - this.coordinates[dot2].y), 2)));
-
-    console.log("dots:", dot1, dot2);
-    console.log(distanceOfDots);
 
     if (distanceOfDots == this.getDistanceOf2Dots("dot1", "dot2")) {
       context.strokeStyle = "red";
@@ -137,34 +132,21 @@ export class Tab1Page implements OnInit, OnDestroy {
   drawTriangles() {
     let contexes = this.contexes;
     let dots = this.syncDotsInfoService.syncDotsInfo();
-
     for (let i = 0; i < dots.length; i++) {
-
-      /*
-      console.log(`${i+1}個目`)
-      console.log("　1点目",dots[i][0]);
-      console.log("　2点目",dots[i][1]);
-      console.log("　3点目",dots[i][2]);
-      */
-
       contexes[i] = this.canvases[i].nativeElement.getContext('2d');
-
       contexes[i].lineWidth = 4;
-
       // 1 点目から 2点目を結ぶ
       contexes[i].beginPath();
       this.setLineColor(`${dots[i][0]}`, `${dots[i][1]}`, this.contexes[i]);
       contexes[i].moveTo(this.coordinates[`${dots[i][0]}`].x, this.coordinates[`${dots[i][0]}`].y);
       contexes[i].lineTo(this.coordinates[`${dots[i][1]}`].x, this.coordinates[`${dots[i][1]}`].y);
       contexes[i].stroke();
-
       // 2点目から3点目を結ぶ
       contexes[i].beginPath();
       this.setLineColor(dots[i][1], dots[i][2], this.contexes[i]);
       contexes[i].moveTo(this.coordinates[`${dots[i][1]}`].x, this.coordinates[`${dots[i][1]}`].y);
       contexes[i].lineTo(this.coordinates[`${dots[i][2]}`].x, this.coordinates[`${dots[i][2]}`].y);
       contexes[i].stroke();
-
       // 3点目から1点目を結ぶ
       contexes[i].beginPath();
       this.setLineColor(dots[i][2], dots[i][0], this.contexes[i]);
@@ -177,14 +159,13 @@ export class Tab1Page implements OnInit, OnDestroy {
   ngOnInit() {
     this.canvases = [this.canvas1, this.canvas2, this.canvas3, this.canvas4, this.canvas5, this.canvas6, this.canvas7, this.canvas8, this.canvas9];
     this.contexes = [this.context1, this.context2, this.context3, this.context4, this.context5, this.context6, this.context7, this.context8, this.context9];
-
     // 円を描く
     for (let i = 0; this.canvases.length > i; i++) {
       this.drawCircle(this.contexes[i], this.canvases[i]);
     }
 
     this.syncDotsInfoService.observedDots.subscribe(data => {
-      console.log(data);
+      // console.log(data);
       this.drawTriangles();
     })
 
@@ -193,5 +174,4 @@ export class Tab1Page implements OnInit, OnDestroy {
   ngOnDestroy() {
     this.syncDotsInfoService.observedDots.unsubscribe();
   }
-
 }

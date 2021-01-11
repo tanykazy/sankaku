@@ -40,27 +40,23 @@ canvas{
 }
 
 .example-box {
-
-    display: inline-flex;
-    justify-content: center;
-    align-items: center;
-
-    border-radius: 50%;
-    text-align: center;
-    background: #fff;
-    margin: 2px;
-    position: relative;
-    z-index: 1;
-
-  }
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  text-align: center;
+  background: #fff;
+  margin: 2px;
+  position: relative;
+  z-index: 1;
+}
   
 .example-boundary {
-    width: 100%;
-    height: 100%;
-    max-width: 100%;
-    border: dotted #ccc 2px;
-    
-  }
+  width: 100%;
+  height: 100%;
+  max-width: 100%;
+  border: dotted #ccc 2px;
+}
 
 .input-box{
   color: black;

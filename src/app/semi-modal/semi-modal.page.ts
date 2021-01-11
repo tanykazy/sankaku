@@ -1,7 +1,4 @@
-import {
-  Component, OnInit, ViewChild, ElementRef
-  // ,EventEmitter,Output
-} from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef} from '@angular/core';
 import { ModalController } from '@ionic/angular';
 
 import { SyncDotsInfoService } from '../services/sync-dots-info.service'
@@ -19,14 +16,6 @@ export class SemiModalPage implements OnInit {
     private syncDotsInfoService: SyncDotsInfoService,
     public modalController: ModalController,
   ) { }
-
-  /*
-  @Output() created = new EventEmitter<any>();
-  createdItem = "Hohohohoho!";
-  onsubmit() {
-    this.created.emit(this.createdItem);
-  }
-  */
 
   // 選択された点
   selectedDots = new Set();

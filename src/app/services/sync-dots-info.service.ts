@@ -15,7 +15,7 @@ export class SyncDotsInfoService {
   addSelectedDotsArray(dots) {
     if (Array.from(dots).length == 3) {
       this.selectedDotsArray.push(Array.from(dots));
-      console.log(`${Array.from(dots)}が追加されました`)
+      // console.log(`${Array.from(dots)}が追加されました`)
     }
     this.observedDots.next(this.selectedDotsArray);
   }
