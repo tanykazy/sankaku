@@ -1,16 +1,11 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>三角形を作る</ion-title>
+    <ion-title>点を３つ選ぼう</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-
-  <div class="my-custom-class">
-    <div id="sankaku" class="example-box" >
-      <canvas #canvas width="200" height="200" cdkDrag></canvas>
-    </div>
-    <ion-button style="width:100%;height: 50px;font-size: 30px;">決定する</ion-button>
-  </div>
-
+    <canvas #canvas class="my-custom-class" width="200" height="200" (click)="init($event)" ></canvas>
+    <ion-button style="width:100%;height: 30px;font-size: 20px;" (click)="syncDots()">三角形を作る</ion-button>
+    <h4 style="text-align: center;">{{countDots()}}</h4>
 </ion-content>

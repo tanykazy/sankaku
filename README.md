@@ -1,19 +1,19 @@
 # sankaku
 
-小学３年生の色々な三角形の単元で使う学習アプリ
+小学３年生「三角形と角」の単元で使う学習アプリ
 
-## Development
+## 開発
 
 ```
 yarn
-cd sankaku
-npx ionic serve
+cd sankaku-ng
+npx ionic serve 
 ```
 
-## Deployment
+## 
 
 ```
-npx ng run app:build:production --base-href "https://gdg-nara.github.io/sankaku/"
+npx ng run app:build:production --base-href "https://gdg-nara.github.io/sankaku-ng/"
 
 npx angular-cli-ghpages --dir=www
 ```
