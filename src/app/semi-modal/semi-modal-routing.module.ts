@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-
 import { SemiModalPage } from './semi-modal.page';
 
 const routes: Routes = [

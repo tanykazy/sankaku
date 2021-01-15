@@ -1,5 +1,4 @@
 import { TestBed } from '@angular/core/testing';
-
 import { SyncDotsInfoService } from './sync-dots-info.service';
 
 describe('SyncDotsInfoService', () => {

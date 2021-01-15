@@ -20,7 +20,6 @@ export class Tab1Page implements OnInit, OnDestroy {
     const modal = await this.modalController.create({
       component: SemiModalPage,
       cssClass: 'my-custom-class', // global.scss に記入する必要あり 
-      //componentProps: {'firstName': 'GDG','lastName': 'Nara'}
     });
     return await modal.present();
   }
@@ -63,8 +62,9 @@ export class Tab1Page implements OnInit, OnDestroy {
   // 白紙の円を描く
   drawCircle(context, canvas) {
     let contextN = context;
-    let canvasN = canvas;
+    let canvasN = canvas;    
     contextN = canvasN.nativeElement.getContext('2d');
+    // 大きい円を描く
     contextN.beginPath();
     contextN.lineWidth = 4;
     contextN.arc(100, 100, 92, 0 * Math.PI / 180, 360 * Math.PI / 180, false);
@@ -73,9 +73,17 @@ export class Tab1Page implements OnInit, OnDestroy {
     contextN.strokeStyle = "black";
     contextN.lineWidth = 4;
     contextN.stroke();
+    // 大きい円の周辺に小さい12点を描く
+    contextN.beginPath();
+    contextN.fillStyle = "rgba(0,0,0,0.7)";
+    for (let key in this.coordinates) {
+      contextN.arc(this.coordinates[key].x, this.coordinates[key].y, 4, 0 * Math.PI / 180, 360 * Math.PI / 180, false);
+      contextN.closePath();
+    }
+    contextN.fill();
   }
 
-  /* 点1~12 の座標を求めるのに必要な情報 */
+  // 点1~12 の座標を求めるのに必要な情報
   // 大きな円の情報
   radiusOfPie = 92; // 半径
   centerPointX = 100; // 中心点の座標
@@ -163,12 +171,11 @@ export class Tab1Page implements OnInit, OnDestroy {
     for (let i = 0; this.canvases.length > i; i++) {
       this.drawCircle(this.contexes[i], this.canvases[i]);
     }
-
     this.syncDotsInfoService.observedDots.subscribe(data => {
       // console.log(data);
       this.drawTriangles();
     })
-
+    this.presentModal();
   }
 
   ngOnDestroy() {

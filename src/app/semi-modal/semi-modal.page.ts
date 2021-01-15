@@ -1,6 +1,5 @@
 import { Component, OnInit, ViewChild, ElementRef} from '@angular/core';
 import { ModalController } from '@ionic/angular';
-
 import { SyncDotsInfoService } from '../services/sync-dots-info.service'
 
 @Component({
@@ -32,7 +31,7 @@ export class SemiModalPage implements OnInit {
 
   countDots() {
     if (this.syncDotsInfoService.selectedDotsArray.length < 9) {
-      return `あと ${9 - this.syncDotsInfoService.selectedDotsArray.length} つ作ろう!`
+      return `あと ${9 - this.syncDotsInfoService.selectedDotsArray.length} つ`
     } else {
       return `外側をクリックしてください`
     }
@@ -45,9 +44,9 @@ export class SemiModalPage implements OnInit {
 
   /* 点1~12 の座標を求めるのに必要な情報 */
   // 大きな円の情報
-  radiusOfPie = 92; // 半径
-  centerPointX = 100; // 中心点の座標
-  centerPointY = 100; // 中心点の座標
+  radiusOfPie = 184; // 半径
+  centerPointX = 200; // 中心点の座標
+  centerPointY = 200; // 中心点の座標
 
   // 30° 60° 90° の三角形の辺の長さ
   shortLine = this.radiusOfPie / 2;
@@ -71,14 +70,14 @@ export class SemiModalPage implements OnInit {
   reset() {
     // 環境を白紙にする
     this.selectedDots.clear();
-    this.context.clearRect(0, 0, 200, 200);
+    this.context.clearRect(0, 0, 400, 400);
 
     // 円を描く
     this.context.beginPath();
     this.context.fillStyle = 'white';
-    this.context.fillRect(0, 0, 200, 200);
+    this.context.fillRect(0, 0, 400, 400);
     this.context.lineWidth = 4;
-    this.context.arc(100, 100, 92, 0 * Math.PI / 180, 360 * Math.PI / 180, false);
+    this.context.arc(200, 200, 184, 0 * Math.PI / 180, 360 * Math.PI / 180, false);
     this.context.fillStyle = "rgba(0,0,0,0)";
     this.context.fill();
     this.context.strokeStyle = "black"
@@ -88,7 +87,7 @@ export class SemiModalPage implements OnInit {
     for (let key in this.coordinates) {
       this.context.beginPath();
       this.context.strokeStyle = "black"
-      this.context.arc(this.coordinates[key].x, this.coordinates[key].y, 4, 0 * Math.PI / 180, 360 * Math.PI / 180, false);
+      this.context.arc(this.coordinates[key].x, this.coordinates[key].y, 6, 0 * Math.PI / 180, 360 * Math.PI / 180, false);
       this.context.fillStyle = "rgba(0,0,0,0.7)";
       this.context.fill();
       this.context.stroke();
@@ -190,9 +189,9 @@ export class SemiModalPage implements OnInit {
     this.context = this.canvas.nativeElement.getContext('2d');
     this.context.beginPath();
     this.context.fillStyle = 'white';
-    this.context.fillRect(0, 0, 200, 200);
+    this.context.fillRect(0, 0, 400, 400);
     this.context.lineWidth = 4;
-    this.context.arc(100, 100, 92, 0 * Math.PI / 180, 360 * Math.PI / 180, false);
+    this.context.arc(200, 200, 184, 0 * Math.PI / 180, 360 * Math.PI / 180, false);
     this.context.fillStyle = "white";
     this.context.fill();
     this.context.strokeStyle = "black";
@@ -205,7 +204,7 @@ export class SemiModalPage implements OnInit {
     for (let key in this.coordinates) {
       this.context.beginPath();
       this.context.strokeStyle = "black";
-      this.context.arc(this.coordinates[key].x, this.coordinates[key].y, 4, 0 * Math.PI / 180, 360 * Math.PI / 180, false);
+      this.context.arc(this.coordinates[key].x, this.coordinates[key].y, 6, 0 * Math.PI / 180, 360 * Math.PI / 180, false);
       this.context.fillStyle = "rgba(0,0,0,0.7)";
       this.context.fill();
       this.context.stroke();
