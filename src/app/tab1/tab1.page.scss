@@ -6,32 +6,34 @@
 }
 
 #left-pane{
-  width: 50%;
+  width: 60%;
   height: 100%;
   background-color: lightblue;
 }
 
 #right-pane{
-  width: 50%;
+  width: 40%;
   height: 100%;
   background-color: lightblue;
   padding-left: 10px;
 }
 
-#right1{
-  height:35px;
-  width: 95%;
+.right1{
+  height:30px;
+  width: 80%;
   color: black;
-  font-size: 20px;
+  font-size: 15px;
   font-weight: bold;
   text-align: center;
-  margin-top: 5px;
-  margin-bottom: 5px;
+  display: table-cell;
+  vertical-align: middle;
+  margin-top: 1px;
+  margin-bottom: 1px;
   background-color: #428CFF;
   border-radius: 5px;
 }
 
-#right2{
+#right3{
   height:55px;
 }
 
@@ -46,7 +48,7 @@ canvas{
   border-radius: 50%;
   text-align: center;
   background: #fff;
-  margin: 2px;
+  margin: 1px;
   position: relative;
   z-index: 1;
 }
@@ -62,8 +64,8 @@ canvas{
   color: black;
   text-align: center;
   font-size: 15px;
-  height: 45px;
-  margin: 5px;
-  width: 130px;
+  height: 43px;
+  margin: 3px;
+  width: 19%;
   resize: none;
 }

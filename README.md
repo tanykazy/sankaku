@@ -13,7 +13,7 @@ npx ionic serve
 ## 
 
 ```
-npx ng run app:build:production --base-href "https://gdg-nara.github.io/sankaku-ng/"
+npx ng run app:build:production --base-href "https://gdg-nara.github.io/sankaku/"
 
 npx angular-cli-ghpages --dir=www
 ```
