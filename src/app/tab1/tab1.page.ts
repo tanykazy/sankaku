@@ -3,12 +3,13 @@ import { SyncDotsInfoService } from '../services/sync-dots-info.service'
 import { ModalController } from '@ionic/angular';
 import { SemiModalPage } from '../semi-modal/semi-modal.page';
 
+let currentModal = null;
+
 @Component({
   selector: 'app-tab1',
   templateUrl: 'tab1.page.html',
   styleUrls: ['tab1.page.scss']
 })
-
 export class Tab1Page implements OnInit, OnDestroy {
 
   constructor(
@@ -16,12 +17,21 @@ export class Tab1Page implements OnInit, OnDestroy {
     public modalController: ModalController
   ) { }
 
-  async presentModal() {
+  async createModal() {
     const modal = await this.modalController.create({
       component: SemiModalPage,
-      cssClass: 'my-custom-class', // global.scss に記入する必要あり 
+      // cssClass: 'my-custom-class', // global.scss に記入する必要あり 
     });
-    return await modal.present();
+
+    await modal.present();
+    currentModal = modal;
+  }
+
+  dismissModal() {
+    console.log("dismissModal!");
+    if (currentModal) {
+      currentModal.dismiss().then(() => { currentModal = null; });
+    }
   }
 
   // canvas 関連
@@ -62,7 +72,7 @@ export class Tab1Page implements OnInit, OnDestroy {
   // 白紙の円を描く
   drawCircle(context, canvas) {
     let contextN = context;
-    let canvasN = canvas;    
+    let canvasN = canvas;
     contextN = canvasN.nativeElement.getContext('2d');
     // 大きい円を描く
     contextN.beginPath();
@@ -165,6 +175,9 @@ export class Tab1Page implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
+    const button = window.document.getElementById("addSankaku");
+    button.addEventListener('click', () => this.createModal());
+
     this.canvases = [this.canvas1, this.canvas2, this.canvas3, this.canvas4, this.canvas5, this.canvas6, this.canvas7, this.canvas8, this.canvas9];
     this.contexes = [this.context1, this.context2, this.context3, this.context4, this.context5, this.context6, this.context7, this.context8, this.context9];
     // 円を描く
@@ -175,7 +188,7 @@ export class Tab1Page implements OnInit, OnDestroy {
       // console.log(data);
       this.drawTriangles();
     })
-    this.presentModal();
+    // this.createModal();
   }
 
   ngOnDestroy() {

@@ -1,24 +1,65 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Sankaku</ion-title>
+  </ion-toolbar>
+</ion-header>
+
 <ion-content [fullscreen]="true">
-  <div id="wrapper">
-    <div id="left-pane">
-      <div class="example-boundary">
-        <div class="right1" (click)="presentModal()">① 三角形を９つ作ろう ② 三角形を動かして仲間に分けよう ③ 仲間に名前をつけよう</div>
-        <div id="right3">
-          <textarea class="input-box" cdkDrag></textarea>
-          <textarea class="input-box" cdkDrag></textarea>
-          <textarea class="input-box" cdkDrag></textarea>
-        </div>
-        <div id="sankaku1" class="example-box" cdkDrag><canvas #canvas1 width="200" height="200"></canvas></div>
-        <div id="sankaku2" class="example-box" cdkDrag><canvas #canvas2 width="200" height="200"></canvas></div>
-        <div id="sankaku3" class="example-box" cdkDrag><canvas #canvas3 width="200" height="200"></canvas></div>
-        <div id="sankaku4" class="example-box" cdkDrag><canvas #canvas4 width="200" height="200"></canvas></div>
-        <div id="sankaku5" class="example-box" cdkDrag><canvas #canvas5 width="200" height="200"></canvas></div>
-        <div id="sankaku6" class="example-box" cdkDrag><canvas #canvas6 width="200" height="200"></canvas></div>
-        <div id="sankaku7" class="example-box" cdkDrag><canvas #canvas7 width="200" height="200"></canvas></div>
-        <div id="sankaku8" class="example-box" cdkDrag><canvas #canvas8 width="200" height="200"></canvas></div>
-        <div id="sankaku9" class="example-box" cdkDrag><canvas #canvas9 width="200" height="200"></canvas></div>
-      </div>
-    </div>  
-    <div id="right-pane"></div>
-  </div>
+
+  <!-- fab placed to the top end -->
+  <ion-fab vertical="top" horizontal="end" slot="fixed">
+    <ion-fab-button id="addSankaku">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+
+  <!-- <ion-text color="primary">
+    <h4>① 三角形を９つ作ろう ② 三角形を動かして仲間に分けよう ③ 仲間に名前をつけよう</h4>
+  </ion-text> -->
+
+  <!-- <div id="wrapper"> -->
+  <!-- <div id="left-pane"> -->
+  <!-- <div class="example-boundary"> -->
+  <!-- <div class="right1">① 三角形を９つ作ろう ② 三角形を動かして仲間に分けよう ③ 仲間に名前をつけよう</div> -->
+
+  <!-- <div id="right3">
+          <ion-input class="input-box" cdkDrag></ion-input>
+          <ion-input class="input-box" cdkDrag></ion-input>
+          <ion-input class="input-box" cdkDrag></ion-input>
+        </div> -->
+  <ion-card cdkDrag>
+    <ion-item>
+      <div id="sankaku1" class="example-box"><canvas #canvas1 width="200" height="200"></canvas></div>
+    </ion-item>
+  </ion-card>
+  <ion-card cdkDrag>
+    <ion-item>
+      <div id="sankaku2" class="example-box" cdkDrag><canvas #canvas2 width="200" height="200"></canvas></div>
+    </ion-item>
+  </ion-card>
+  <ion-item>
+    <div id="sankaku3" class="example-box" cdkDrag><canvas #canvas3 width="200" height="200"></canvas></div>
+  </ion-item>
+  <ion-item>
+    <div id="sankaku4" class="example-box" cdkDrag><canvas #canvas4 width="200" height="200"></canvas></div>
+  </ion-item>
+  <ion-item>
+    <div id="sankaku5" class="example-box" cdkDrag><canvas #canvas5 width="200" height="200"></canvas></div>
+  </ion-item>
+  <ion-item>
+    <div id="sankaku6" class="example-box" cdkDrag><canvas #canvas6 width="200" height="200"></canvas></div>
+  </ion-item>
+  <ion-item>
+    <div id="sankaku7" class="example-box" cdkDrag><canvas #canvas7 width="200" height="200"></canvas></div>
+  </ion-item>
+  <ion-item>
+    <div id="sankaku8" class="example-box" cdkDrag><canvas #canvas8 width="200" height="200"></canvas></div>
+  </ion-item>
+  <ion-item>
+    <div id="sankaku9" class="example-box" cdkDrag><canvas #canvas9 width="200" height="200"></canvas></div>
+  </ion-item>
+  <!-- </div> -->
+  <!-- </div> -->
+  <!-- <div id="right-pane"></div> -->
+  <!-- </div> -->
 </ion-content>

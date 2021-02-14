@@ -1,11 +1,18 @@
-<ion-header>
+<ion-header [translucent]="true">
+
   <ion-toolbar>
-    <ion-title style="text-align: center;">点を３つえらんで三角を作ろう</ion-title>
+    <ion-title>点を３つえらんで三角を作ろう</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="close()">Close</ion-button>
+    </ion-buttons>
   </ion-toolbar>
+
 </ion-header>
 
-<ion-content>
-    <canvas #canvas class="my-custom-class" width="400" height="400" (click)="init($event)" ></canvas>
-    <ion-button style="width:100%;height: 40px;font-size: 20px;" (click)="syncDots()">三角形を作る</ion-button>
-    <h4 style="text-align: center;">{{countDots()}}</h4>
+<ion-content [fullscreen]="true">
+
+  <canvas #canvas class="my-custom-class" width="400" height="400" (click)="init($event)"></canvas>
+  <ion-button expand="block" (click)="syncDots()">三角形を作る</ion-button>
+  <!-- <h4>{{countDots()}}</h4> -->
+
 </ion-content>

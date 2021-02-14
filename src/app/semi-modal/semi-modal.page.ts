@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, ElementRef} from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { ModalController } from '@ionic/angular';
 import { SyncDotsInfoService } from '../services/sync-dots-info.service'
 
@@ -15,6 +15,14 @@ export class SemiModalPage implements OnInit {
     private syncDotsInfoService: SyncDotsInfoService,
     public modalController: ModalController,
   ) { }
+
+  close() {
+    // using the injected ModalController this page
+    // can "dismiss" itself and optionally pass back data
+    this.modalController.dismiss({
+      'dismissed': true
+    });
+  }
 
   // 選択された点
   selectedDots = new Set();
